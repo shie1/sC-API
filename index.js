@@ -98,6 +98,6 @@ app.listen(port, () => {
         res.json(sCrypt.encrypt(req.query.key, req.query.text));
     });
     app.get("/decrypt", (req, res, next) => {
-        res.json(sCrypt.decrypt(req.query.key, req.query.array.split(/,/g)));
+        res.json(sCrypt.decrypt(req.query.key, req.query.text.split(/,/g)));
     });
 });
