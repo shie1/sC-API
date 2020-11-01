@@ -93,10 +93,11 @@ sCrypt.dev.ls = ["\u0001","\u0002","\u0003","\u0004","\u0005","\u0006","\u0007",
 const port = process.env.PORT || 80
 
 app.listen(port, () => {
+    console.log(`Running on port ${port}!`)
     app.get("/encrypt", (req, res, next) => {
         res.json(sCrypt.encrypt(req.query.key, req.query.text));
     });
     app.get("/decrypt", (req, res, next) => {
-        res.json(sCrypt.decrypt(req.query.key, req.query.array));
+        res.json(sCrypt.decrypt(req.query.key, req.query.array.split(/,/g)));
     });
 });
